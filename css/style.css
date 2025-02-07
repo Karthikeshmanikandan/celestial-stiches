@@ -616,7 +616,7 @@ a {
 
 section {
   position: relative;
-  height: 450px;
+  height: 450px;  
   padding: 15px;
   padding: 0 70px;
   max-width: 1200px;
@@ -636,7 +636,7 @@ section {
   position: absolute;
   height: 40%;
   width: 100%;
-  background: #7d2ae8;
+  background: #000000;
   border-radius: 20px 20px 0 0;
 }
 .card .card-content {
@@ -652,7 +652,7 @@ section .card .image {
   width: 140px;
   border-radius: 50%;
   padding: 3px;
-  background: #7d2ae8;
+  background: #9ea0a9;
 }
 section .card .image img {
   height: 100%;
@@ -684,7 +684,7 @@ section .card .image img {
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
-  color: #000; ;
+  color: #343a40;
 }
 .name-profession .name {
   font-size: 20px;
@@ -702,7 +702,7 @@ section .card .image img {
 .card .rating i {
   font-size: 18px;
   margin: 0 2px;
-  color: #7d2ae8;
+  color: #fffb00;
 }
 .card .button {
   width: 100%;
@@ -712,7 +712,7 @@ section .card .image img {
   margin-top: 20px;
 }
 .card .button button {
-  background: #7d2ae8;
+  background: #2e3138;
   outline: none;
   border: none;
   color: #fff;
@@ -723,7 +723,7 @@ section .card .image img {
   cursor: pointer;
 }
 .button button:hover {
-  background: #6616d0;
+  background:#212529;
 }
 .swiper-pagination {
   position: absolute;
@@ -732,18 +732,18 @@ section .card .image img {
   height: 7px;
   width: 26px;
   border-radius: 25px;
-  background: #7d2ae8;
+  background: #1e2129;
 }
 .swiper-button-next,
 .swiper-button-prev {
   opacity: 0.7;
-  color: #7d2ae8;
+  color: #13151a;
   transition: all 0.3s ease;
 }
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   opacity: 1;
-  color: #7d2ae8;
+  color: #111111;
 }
 /* Responsive media query code for small screens */
 @media (max-width: 768px) {
@@ -755,6 +755,9 @@ section .card .image img {
     display: none;
   }
 }
+
+
+
 
 
 
