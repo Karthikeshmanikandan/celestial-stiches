@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Stylist</title>
+</head>
+<body>
+    <h1>Book Your Appointment</h1>
+    
+    <form id="booking-form">
+        <div>
+            <label for="stylist-name">Stylist Name:</label>
+            <input type="text" id="stylist-name" name="stylist-name" disabled>
+        </div>
+        <div>
+            <label for="date">Preferred Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div>
+            <label for="time">Preferred Time:</label>
+            <input type="time" id="time" name="time" required>
+        </div>
+        <div>
+            <label for="message">Additional Message:</label>
+            <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit">Confirm Booking</button>
+    </form>
+
+    <script>
+        // Get the stylist name from the URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const stylistName = urlParams.get('stylist');
+
+        // Pre-fill the stylist's name in the form
+        document.getElementById('stylist-name').value = stylistName;
+        
+        // Handle form submission
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Process the booking form (you can add your own form submission logic here)
+
+            alert(`Your appointment with ${stylistName} has been booked!`);
+        });
+    </script>
+</body>
+</html>
