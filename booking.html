@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Stylist</title>
+    <link rel="stylesheet" href="/stylist/booking.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+    <h1>Book Your Appointment</h1>
+
+    <form id="booking-form">
+        <div>
+            <label for="stylist-name">Stylist Name:</label>
+            <input type="text" id="stylist-name" name="stylist-name" disabled>
+        </div>
+        <div>
+            <label for="date">Preferred Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div>
+            <label for="time">Preferred Time:</label>
+            <input type="time" id="time" name="time" required>
+        </div>
+        <div>
+            <label for="message">Additional Message:</label>
+            <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit">Confirm Booking</button>
+    </form>
+    <script>
+        // Initialize EmailJS
+        emailjs.init("mWAGFGRIx1ZjGVwuP"); // Replace with your EmailJS User ID
+
+        // Handle form submission
+        document.getElementById("booking-form").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form from submitting the default way
+
+            // Collect form data
+            const stylistName = document.getElementById("stylist-name").value;
+            const preferredDate = document.getElementById("date").value;
+            const preferredTime = document.getElementById("time").value;
+            const additionalMessage = document.getElementById("message").value;
+
+            // Send email using EmailJS
+            emailjs.send("service_g9ni7kw", "template_ncm0fu7", {
+                stylist_name: stylistName,
+                date: preferredDate,
+                time: preferredTime,
+                message: additionalMessage
+            })
+            .then(function(response) {
+                alert("Booking details sent successfully!");
+                // Optionally, you can redirect or clear the form
+                document.getElementById("booking-form").reset();
+            }, function(error) {
+                alert("Failed to send booking details. Please try again.");
+            });
+        });
+    </script>
+</body>
+</html>
