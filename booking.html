@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Stylist</title>
     <link rel="stylesheet" href="/stylist/booking.css">
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
     <h1>Book Your Appointment</h1>
-
+    
     <form id="booking-form">
         <div>
             <label for="stylist-name">Stylist Name:</label>
@@ -29,34 +28,22 @@
         </div>
         <button type="submit">Confirm Booking</button>
     </form>
+
     <script>
-        // Initialize EmailJS
-        emailjs.init("mWAGFGRIx1ZjGVwuP"); // Replace with your EmailJS User ID
+        // Get the stylist name from the URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const stylistName = urlParams.get('stylist');
 
+        // Pre-fill the stylist's name in the form
+        document.getElementById('stylist-name').value = stylistName;
+        
         // Handle form submission
-        document.getElementById("booking-form").addEventListener("submit", function(event) {
-            event.preventDefault();  // Prevent form from submitting the default way
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
 
-            // Collect form data
-            const stylistName = document.getElementById("stylist-name").value;
-            const preferredDate = document.getElementById("date").value;
-            const preferredTime = document.getElementById("time").value;
-            const additionalMessage = document.getElementById("message").value;
+            // Process the booking form (you can add your own form submission logic here)
 
-            // Send email using EmailJS
-            emailjs.send("service_g9ni7kw", "template_ncm0fu7", {
-                stylist_name: stylistName,
-                date: preferredDate,
-                time: preferredTime,
-                message: additionalMessage
-            })
-            .then(function(response) {
-                alert("Booking details sent successfully!");
-                // Optionally, you can redirect or clear the form
-                document.getElementById("booking-form").reset();
-            }, function(error) {
-                alert("Failed to send booking details. Please try again.");
-            });
+            alert(`Your appointment with ${stylistName} has been booked!`);
         });
     </script>
 </body>
